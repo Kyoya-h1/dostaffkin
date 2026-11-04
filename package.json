@@ -36,8 +36,12 @@
     "@angular/build": "21.1.1",
     "@angular/cli": "21.1.1",
     "@angular/compiler-cli": "21.1.1",
+    "cypress": "^16.2.1",
     "jsdom": "27.4.0",
     "typescript": "5.9.3",
     "vitest": "4.0.18"
+  },
+  "allowScripts": {
+    "cypress@16.2.1": true
   }
 }
