@@ -47,22 +47,20 @@ export class Order {
         controls: ['zoomControl']
       });
 
-      (new ymaps.SuggestView('from')).events.add('select', (event: any) =>
-        this.routeForm.get('from')?.setValue(event.get('item')?.value ?? '')
-      );
-      (new ymaps.SuggestView('to')).events.add('select', (event: any) =>
-        this.routeForm.get('to')?.setValue(event.get('item')?.value ?? '')
-      );
+     // Подключаем подсказки адресов к полям от яндекса
+      (new ymaps.SuggestView('from')).events.add('select', (event: any) => (this.routeForm.controls['from'].setValue(event.get('item')?.value ?? '')));
+      (new ymaps.SuggestView('to')).events.add('select', (event: any) => (this.routeForm.controls['to'].setValue(event.get('item')?.value ?? '')));
     });
   }
 
   public selectSize(size: string) {
-    this.routeForm.get('size')?.setValue(size);
+  this.routeForm.controls['size'].setValue(size);
   }
 
-  public selectSpeed(speed: string) {
-    this.routeForm.get('speed')?.setValue(speed);
-  }
+ public selectSpeed(speed: string) {
+ this.routeForm.controls['speed'].setValue(speed);
+}
+  
   public calculate() {
     this.calculationResult.set(null);
 
